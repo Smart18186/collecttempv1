@@ -8,6 +8,7 @@ radio.onReceivedNumber(function (receivedNumber) {
             . # # # .
             . . . . .
             `)
+        basic.pause(60000)
     }
     if (receivedNumber == input.temperature()) {
         basic.showString("" + (input.temperature()))
@@ -18,6 +19,7 @@ radio.onReceivedNumber(function (receivedNumber) {
             . # # # .
             # . . . #
             `)
+        basic.pause(60000)
     }
 })
 input.onButtonPressed(Button.A, function () {
