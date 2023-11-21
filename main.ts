@@ -1,8 +1,16 @@
 radio.onReceivedNumber(function (receivedNumber) {
-    if (receivedNumber == 0) {
-        basic.showIcon(IconNames.Asleep)
+    if (receivedNumber == input.temperature()) {
+        basic.showString("" + (input.temperature()))
+        basic.showLeds(`
+            . . . . .
+            # # . # #
+            . . . . .
+            . # # # .
+            . . . . .
+            `)
     }
-    if (receivedNumber == 1) {
+    if (receivedNumber == input.temperature()) {
+        basic.showString("" + (input.temperature()))
         basic.showLeds(`
             # . . . #
             . . . . .
@@ -13,17 +21,17 @@ radio.onReceivedNumber(function (receivedNumber) {
     }
 })
 input.onButtonPressed(Button.A, function () {
-    radio.sendNumber(0)
+    radio.sendNumber(input.temperature())
     basic.showLeds(`
-        # . . . #
         . . . . .
+        # # . # #
         . . . . .
-        # # # # #
-        . . . # .
+        . # # # .
+        . . . . .
         `)
 })
 input.onButtonPressed(Button.B, function () {
-    radio.sendNumber(1)
+    radio.sendNumber(input.temperature())
     basic.showLeds(`
         # . . . #
         . . . . .
