@@ -10,36 +10,10 @@ radio.onReceivedNumber(function (receivedNumber) {
             `)
         basic.pause(60000)
     }
-    if (receivedNumber == input.temperature()) {
-        basic.showString("" + (input.temperature()))
-        basic.showLeds(`
-            # . . . #
-            . . . . .
-            . . . . .
-            . # # # .
-            # . . . #
-            `)
-        basic.pause(60000)
-    }
 })
-input.onButtonPressed(Button.A, function () {
-    radio.sendNumber(input.temperature())
-    basic.showLeds(`
-        . . . . .
-        # # . # #
-        . . . . .
-        . # # # .
-        . . . . .
-        `)
+serial.redirectToUSB()
+basic.forever(function () {
+    serial.writeNumber(input.temperature())
+    serial.writeLine("")
+    basic.pause(500)
 })
-input.onButtonPressed(Button.B, function () {
-    radio.sendNumber(input.temperature())
-    basic.showLeds(`
-        # . . . #
-        . . . . .
-        . . . . .
-        . # # # .
-        # . . . #
-        `)
-})
-radio.setGroup(1)

@@ -1,5 +1,5 @@
 {
-    "name": "collecttempv2",
+    "name": "indoorReceive",
     "description": "",
     "dependencies": {
         "core": "*",
